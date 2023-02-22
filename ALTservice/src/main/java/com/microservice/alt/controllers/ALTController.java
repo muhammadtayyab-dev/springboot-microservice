@@ -4,23 +4,23 @@ import com.microservice.alt.models.Response;
 import com.microservice.alt.services.ALTService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
 @RestController
-@RequestMapping("/translation")
+@RequestMapping("api/v1/translation")
 @AllArgsConstructor
 public class ALTController {
-
-    @Autowired
     private final ALTService soapClient;
 
-    @PostMapping(path = "/translate")
-    public Response<String> translateRequest() {
+    @RequestMapping(value = "/translate", method = RequestMethod.POST)
+    public Response<String> translateRequest(HttpServletResponse response) {
         log.info("ALT Service Call");
+        response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
         return soapClient.ALTService();
     }
+
 }
