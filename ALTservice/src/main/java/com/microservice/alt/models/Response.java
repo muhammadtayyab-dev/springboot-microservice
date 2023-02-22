@@ -1,4 +1,4 @@
-package com.microservice.customer.models;
+package com.microservice.alt.models;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

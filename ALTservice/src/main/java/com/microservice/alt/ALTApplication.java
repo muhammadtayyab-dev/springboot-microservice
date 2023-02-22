@@ -1,12 +1,12 @@
-package com.microservice.customer;
+package com.microservice.alt;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
-public class CustomerApplication {
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+public class ALTApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CustomerApplication.class, args);
+        SpringApplication.run(ALTApplication.class, args);
     }
 }

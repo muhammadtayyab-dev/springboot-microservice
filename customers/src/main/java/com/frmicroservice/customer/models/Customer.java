@@ -1,4 +1,4 @@
-package com.microservice.customer.models;
+package com.frmicroservice.customer.models;
 
 
 import lombok.AllArgsConstructor;
@@ -24,7 +24,7 @@ public class Customer {
             generator = "customer_id_sequence"
     )
     private Integer id;
-    private String firstName;
-    private String lastName;
-    private String email;
+    private String companyName;
+    private String password;
+    private String companyEmail;
 }
