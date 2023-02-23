@@ -1,6 +1,8 @@
 package com.microservice.alt.controllers;
 
+import com.microservice.alt.models.NadaraResponse;
 import com.microservice.alt.models.Response;
+import com.microservice.alt.models.TranToEnglishResponse;
 import com.microservice.alt.services.ALTService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,10 +19,10 @@ public class ALTController {
     private final ALTService soapClient;
 
     @RequestMapping(value = "/translate", method = RequestMethod.POST)
-    public Response<String> translateRequest(HttpServletResponse response) {
+    public Response<TranToEnglishResponse> translateRequest(@RequestBody NadaraResponse nadaraResponse, HttpServletResponse response) {
         log.info("ALT Service Call");
         response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
-        return soapClient.ALTService();
+        return soapClient.ALTService(nadaraResponse);
     }
 
 }
