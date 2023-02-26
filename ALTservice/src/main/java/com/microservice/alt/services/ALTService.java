@@ -14,23 +14,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLStreamHandler;
-import java.util.Iterator;
 import java.util.Objects;
 
 @Slf4j
 @Service
 @AllArgsConstructor
 public class ALTService {
-
-    public SOAPElement getFirstBodyElement(SOAPBody body) {
-        for (Iterator<?> iterator = body.getChildElements(); iterator.hasNext(); ) {
-            Object child = iterator.next();
-            if (child instanceof SOAPElement) {
-                return (SOAPElement) child;
-            }
-        }
-        return null;
-    }
 
     public Response<TranToEnglishResponse> ALTService(NadaraResponse nadaraResponse) {
         TranToEnglishResponse altResponse = new TranToEnglishResponse();
